@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PIROMAX | Efectos para eventos</title>
+
+    <meta
+        name="description"
+        content="PIROMAX crea experiencias visuales para bodas, XV años, revelaciones y eventos especiales."
+    >
+
+    <!-- TIPOGRAFÍAS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =====================================================
+           PIROMAX — BASE
+        ===================================================== */
+
+        :root {
+            --negro: #090909;
+            --negro-claro: #111111;
+            --blanco: #ffffff;
+            --gris: #a3a3a3;
+            --dorado: #d4af37;
+            --borde: rgba(255,255,255,0.11);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--negro);
+            color: var(--blanco);
+
+            font-family: "Manrope", sans-serif;
+
+            overflow-x: hidden;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        /* =====================================================
+           MENÚ
+        ===================================================== */
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            z-index: 1000;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 26px 6%;
+
+            transition: 0.4s;
+        }
+
+        .header.scrolled {
+            background: rgba(8,8,8,0.92);
+            backdrop-filter: blur(16px);
+
+            border-bottom: 1px solid var(--borde);
+
+            padding-top: 18px;
+            padding-bottom: 18px;
+        }
+
+        .logo {
+            font-family: "Barlow Condensed", sans-serif;
+
+            font-size: 30px;
+            font-weight: 900;
+
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--dorado);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 34px;
+        }
+
+        .nav a {
+            font-size: 12px;
+            font-weight: 600;
+
+            letter-spacing: 1px;
+
+            color: rgba(255,255,255,0.72);
+
+            transition: 0.3s;
+        }
+
+        .nav a:hover {
+            color: white;
+        }
+
+        .header-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+            padding: 13px 20px;
+
+            border: 1px solid rgba(255,255,255,0.4);
+
+            transition: 0.3s;
+        }
+
+        .header-cta:hover {
+            background: white;
+            color: black;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: flex-end;
+
+            position: relative;
+
+            padding: 150px 6% 80px;
+
+            background-image:
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,0.96) 0%,
+                    rgba(0,0,0,0.78) 32%,
+                    rgba(0,0,0,0.20) 68%,
+                    rgba(0,0,0,0.08) 100%
+                ),
+                linear-gradient(
+                    0deg,
+                    rgba(0,0,0,0.65),
+                    transparent 45%
+                ),
+                url("imagenes/portada.jpeg");
+
+            background-size: cover;
+            background-position: center;
+
+            overflow: hidden;
+        }
+
+        .hero-contenido {
+            position: relative;
+            z-index: 2;
+
+            width: 100%;
+            max-width: 1050px;
+        }
+
+        .mini-etiqueta {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+
+            color: var(--dorado);
+
+            font-size: 10px;
+            font-weight: 700;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 26px;
+        }
+
+        .mini-etiqueta::before {
+            content: "";
+
+            width: 45px;
+            height: 1px;
+
+            background: var(--dorado);
+        }
+
+        .hero h1 {
+            font-family: "Barlow Condensed", sans-serif;
+
+            font-size: clamp(76px, 10vw, 155px);
+
+            font-weight: 800;
+
+            line-height: 0.76;
+
+            letter-spacing: -4px;
+
+            text-transform: uppercase;
+
+            max-width: 1000px;
+        }
+
+        .hero h1 span {
+            display: block;
+            color: var(--dorado);
+        }
+
+        .hero-inferior {
+            margin-top: 42px;
+
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+
+            gap: 30px;
+
+            max-width: 930px;
+        }
+
+        .hero-descripcion {
+            max-width: 470px;
+
+            color: rgba(255,255,255,0.72);
+
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .boton {
+            display: inline-flex;
+            align-items: center;
+            gap: 18px;
+
+            padding: 16px 23px;
+
+            background: var(--dorado);
+            color: #080808;
+
+            font-size: 11px;
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            transition: 0.3s;
+        }
+
+        .boton span {
+            font-size: 18px;
+
+            transition: 0.3s;
+        }
+
+        .boton:hover span {
+            transform: translateX(5px);
+        }
+
+
+        /* =====================================================
+           SERVICIOS — ESTILO EDITORIAL
+        ===================================================== */
+
+        .servicios {
+            padding: 140px 6%;
+
+            background: #0a0a0a;
+        }
+
+        .titulo-seccion {
+            display: grid;
+
+            grid-template-columns: 0.45fr 1fr;
+
+            gap: 50px;
+
+            margin-bottom: 75px;
+        }
+
+        .titulo-numero {
+            color: var(--dorado);
+
+            font-family: "Barlow Condensed", sans-serif;
+
+            font-size: 16px;
+            font-weight: 700;
+
+            letter-spacing: 2px;
+        }
+
+        .titulo-seccion h2 {
+            font-family: "Barlow Condensed", sans-serif;
+
+            font-size: clamp(65px, 8vw, 120px);
+
+            line-height: 0.80;
+
+            letter-spacing: -3px;
+
+            text-transform: uppercase;
+        }
+
+        .titulo-seccion h2 span {
+            display: block;
+
+            color: var(--dorado);
+        }
+
+
+        /* MOSAICO */
+
+        .servicios-mosaico {
+            display: grid;
+
+            grid-template-columns: 1.25fr 0.75fr;
+
+            grid-template-rows: 350px 350px;
+
+            gap: 18px;
+        }
+
+        .servicio {
+            position: relative;
+
+            overflow: hidden;
+
+            background: #151515;
+        }
+
+        .servicio-grande {
+            grid-row: span 2;
+        }
+
+        .servicio img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: transform 0.7s ease;
+        }
+
+        .servicio:hover img {
+            transform: scale(1.045);
+        }
+
+        .servicio::after {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    0deg,
+                    rgba(0,0,0,0.9) 0%,
+                    rgba(0,0,0,0.05) 60%
+                );
+        }
+
+        .servicio-info {
+            position: absolute;
+
+            z-index: 2;
+
+            left: 30px;
+            right: 30px;
+            bottom: 26px;
+
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+        .servicio-numero {
+            color: var(--dorado);
+
+            font-size: 10px;
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 5px;
+        }
+
+        .servicio h3 {
+            font-family: "Barlow Condensed", sans-serif;
+
+            font-size: clamp(35px, 4vw, 58px);
+
+            line-height: 0.9;
+
+            text-transform: uppercase;
+        }
+
+        .servicio-flecha {
+            font-size: 25px;
+
+            transition: 0.3s;
+        }
+
+        .servicio:hover .servicio-flecha {
+            transform: translateX(6px);
+        }
+
+
+        /* SEGUNDA FILA */
+
+        .servicios-secundarios {
+            margin-top: 18px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 18px;
+        }
+
+        .servicios-secundarios .servicio {
+            height: 410px;
+        }
+
+/* =====================================================
+   PIROMAX EN ACCIÓN
+===================================================== */
+
+.en-accion {
+    padding: 140px 6%;
+
+    background: #070707;
+
+    border-top: 1px solid var(--borde);
+}
+
+.accion-encabezado {
+    display: grid;
+
+    grid-template-columns: 1.4fr 0.6fr;
+
+    gap: 70px;
+
+    align-items: end;
+
+    margin-bottom: 65px;
+}
+
+.accion-encabezado h2 {
+    font-family: "Barlow Condensed", sans-serif;
+
+    font-size: clamp(70px, 9vw, 135px);
+
+    font-weight: 800;
+
+    line-height: 0.76;
+
+    letter-spacing: -4px;
+
+    text-transform: uppercase;
+
+    max-width: 900px;
+}
+
+.accion-encabezado h2 span {
+    display: block;
+
+    color: var(--dorado);
+}
+
+.accion-descripcion {
+    color: var(--gris);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    max-width: 280px;
+
+    margin-bottom: 5px;
+}
+
+
+/* VIDEOS */
+
+.videos-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1.12fr 1fr;
+
+    gap: 18px;
+
+    align-items: center;
+}
+
+.video-card {
+    height: 610px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: #111;
+
+    border: 1px solid rgba(255,255,255,0.09);
+}
+
+.video-central {
+    height: 690px;
+}
+
+.video-card video {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.8s ease;
+}
+
+.video-card:hover video {
+    transform: scale(1.035);
+}
+
+
+/* SOMBRA SOBRE VIDEO */
+
+.video-card::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,0.02) 45%,
+            rgba(0,0,0,0.75) 100%
+        );
+}
+
+
+/* MARCA INFERIOR */
+
+.video-marca {
+    position: absolute;
+
+    z-index: 2;
+
+    left: 22px;
+    right: 22px;
+    bottom: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.video-marca span {
+    color: var(--dorado);
+
+    font-family: "Barlow Condensed", sans-serif;
+
+    font-size: 17px;
+
+    font-weight: 700;
+}
+
+.video-marca p {
+    color: rgba(255,255,255,0.75);
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+        /* =====================================================
+           FRASE
+        ===================================================== */
+
+        .manifiesto {
+            min-height: 650px;
+
+            display: flex;
+            align-items: center;
+
+            padding: 120px 6%;
+
+            border-top: 1px solid var(--borde);
+            border-bottom: 1px solid var(--borde);
+        }
+
+        .manifiesto-contenido {
+            max-width: 1250px;
+        }
+
+        .manifiesto h2 {
+            font-family: "Barlow Condensed", sans-serif;
+
+            font-size: clamp(70px, 10vw, 155px);
+
+            line-height: 0.78;
+
+            letter-spacing: -4px;
+
+            text-transform: uppercase;
+        }
+
+        .manifiesto h2 span {
+            color: var(--dorado);
+        }
+
+
+        /* =====================================================
+           PROCESO
+        ===================================================== */
+
+        .proceso {
+            padding: 140px 6%;
+        }
+
+        .proceso-lista {
+            margin-top: 75px;
+
+            border-top: 1px solid var(--borde);
+        }
+
+        .paso {
+            display: grid;
+
+            grid-template-columns: 100px 1fr 1fr;
+
+            gap: 35px;
+
+            align-items: center;
+
+            padding: 38px 0;
+
+            border-bottom: 1px solid var(--borde);
+        }
+
+        .paso-numero {
+            color: var(--dorado);
+
+            font-family: "Barlow Condensed", sans-serif;
+
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .paso h3 {
+            font-family: "Barlow Condensed", sans-serif;
+
+            font-size: clamp(38px, 4vw, 56px);
+
+            text-transform: uppercase;
+        }
+
+        .paso p {
+            color: var(--gris);
+
+            font-size: 14px;
+            line-height: 1.7;
+
+            max-width: 450px;
+        }
+
+
+        /* =====================================================
+           COBERTURA
+        ===================================================== */
+
+        .cobertura {
+            min-height: 650px;
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+
+            padding: 120px 6%;
+
+            background-image:
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,0.94),
+                    rgba(0,0,0,0.55)
+                ),
+                url("imagenes/experiencia.jpg");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .cobertura-contenido {
+            max-width: 900px;
+        }
+
+        .cobertura h2 {
+            font-family: "Barlow Condensed", sans-serif;
+
+            font-size: clamp(70px, 9vw, 135px);
+
+            line-height: 0.78;
+
+            letter-spacing: -4px;
+
+            text-transform: uppercase;
+        }
+
+        .cobertura h2 span {
+            display: block;
+            color: var(--dorado);
+        }
+
+        .ciudades {
+            margin-top: 40px;
+
+            max-width: 750px;
+
+            font-size: 14px;
+            line-height: 2;
+
+            letter-spacing: 1px;
+
+            color: rgba(255,255,255,0.75);
+        }
+
+
+        /* =====================================================
+           CTA FINAL
+        ===================================================== */
+
+        .contacto {
+            padding: 150px 6% 80px;
+
+            background: var(--dorado);
+            color: #080808;
+        }
+
+        .contacto-mini {
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 30px;
+        }
+
+        .contacto h2 {
+            font-family: "Barlow Condensed", sans-serif;
+
+            font-size: clamp(80px, 12vw, 180px);
+
+            line-height: 0.72;
+
+            letter-spacing: -5px;
+
+            text-transform: uppercase;
+
+            max-width: 1200px;
+        }
+
+        .contacto-boton {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 20px;
+
+            margin-top: 55px;
+
+            padding: 17px 25px;
+
+            background: #080808;
+            color: white;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            letter-spacing: 1px;
+        }
+
+        .contacto-boton span {
+            font-size: 20px;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            padding: 45px 6%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 25px;
+
+            background: #050505;
+
+            border-top: 1px solid var(--borde);
+        }
+
+        .footer-logo {
+            font-family: "Barlow Condensed", sans-serif;
+
+            font-size: 38px;
+            font-weight: 900;
+
+            letter-spacing: 2px;
+        }
+
+        .footer-logo span {
+            color: var(--dorado);
+        }
+
+        footer p {
+            color: #666;
+
+            font-size: 10px;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* =====================================================
+           ANIMACIONES
+        ===================================================== */
+
+        .reveal {
+            opacity: 0;
+
+            transform: translateY(35px);
+
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+
+        /* =====================================================
+           CELULAR
+        ===================================================== */
+/* =====================================================
+   WHATSAPP FLOTANTE
+===================================================== */
+
+.whatsapp-flotante {
+    position: fixed;
+
+    right: 28px;
+    bottom: 28px;
+
+    z-index: 2000;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 14px 18px;
+
+    background: #25d366;
+    color: white;
+
+    border-radius: 50px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,0.35);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.whatsapp-flotante svg {
+    width: 24px;
+    height: 24px;
+
+    fill: white;
+}
+
+.whatsapp-flotante:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 16px 40px rgba(0,0,0,0.45);
+}
+        @media (max-width: 850px) {
+
+            .header {
+                padding: 20px 5%;
+            }
+
+            .nav {
+                display: none;
+            }
+
+            .logo {
+                font-size: 26px;
+            }
+
+            .header-cta {
+                padding: 11px 14px;
+
+                font-size: 10px;
+                .whatsapp-flotante {
+    right: 16px;
+    bottom: 16px;
+
+    width: 56px;
+    height: 56px;
+
+    padding: 0;
+
+    justify-content: center;
+
+    border-radius: 50%;
+}
+
+.whatsapp-flotante span {
+    display: none;
+}
+
+.whatsapp-flotante svg {
+    width: 27px;
+    height: 27px;
+}
+            }
+
+
+            .hero {
+                min-height: 820px;
+
+                padding: 125px 5% 65px;
+
+                background-position: 64% center;
+            }
+
+            .hero h1 {
+                font-size: clamp(70px, 22vw, 105px);
+
+                line-height: 0.77;
+
+                letter-spacing: -3px;
+            }
+
+            .hero-inferior {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+
+            .servicios,
+            .proceso {
+                padding: 95px 5%;
+            }
+
+            .titulo-seccion {
+                grid-template-columns: 1fr;
+
+                gap: 20px;
+
+                margin-bottom: 45px;
+            }
+
+            .titulo-seccion h2 {
+                font-size: 70px;
+            }
+
+
+            .servicios-mosaico {
+                grid-template-columns: 1fr;
+
+                grid-template-rows: none;
+            }
+
+            .servicio-grande {
+                grid-row: auto;
+            }
+
+            .servicio {
+                height: 480px;
+            }
+
+            .servicios-secundarios {
+                grid-template-columns: 1fr;
+            }
+
+            .servicios-secundarios .servicio {
+                height: 480px;
+            }
+
+
+            .manifiesto {
+                min-height: 520px;
+
+                padding: 90px 5%;
+            }
+
+            .manifiesto h2 {
+                font-size: 75px;
+
+                letter-spacing: -3px;
+            }
+
+
+            .paso {
+                grid-template-columns: 55px 1fr;
+
+                gap: 18px;
+            }
+
+            .paso p {
+                grid-column: 2;
+            }
+
+
+            .cobertura {
+                min-height: 620px;
+
+                padding: 90px 5%;
+            }
+
+            .cobertura h2 {
+                font-size: 78px;
+            }
+
+
+            .contacto {
+                padding: 100px 5% 70px;
+            }
+
+            .contacto h2 {
+                font-size: 90px;
+            }
+
+
+            footer {
+                flex-direction: column;
+
+                align-items: flex-start;
+          
+          .en-accion {
+    padding: 95px 5%;
+}
+
+.accion-encabezado {
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+
+    margin-bottom: 45px;
+}
+
+.accion-encabezado h2 {
+    font-size: 76px;
+
+    letter-spacing: -3px;
+}
+
+.videos-grid {
+    grid-template-columns: 1fr;
+
+    gap: 14px;
+}
+
+.video-card,
+.video-central {
+    height: 620px;}
+        }
+    
+
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- ==========================================
+         MENÚ
+    =========================================== -->
+
+    <header class="header" id="header">
+
+        <a href="#inicio" class="logo">
+            PIRO<span>MAX</span>
+        </a>
+
+        <nav class="nav">
+            <a href="#servicios">SERVICIOS</a>
+            <a href="#proceso">CÓMO TRABAJAMOS</a>
+            <a href="#cobertura">COBERTURA</a>
+            <a href="#contacto">CONTACTO</a>
+        </nav>
+
+        <a href="#contacto" class="header-cta">
+            COTIZAR
+            <span>↗</span>
+        </a>
+
+    </header>
+
+
+
+    <main>
+
+
+        <!-- ==========================================
+             PORTADA
+        =========================================== -->
+
+        <section class="hero" id="inicio">
+
+            <div class="hero-contenido">
+
+                <p class="mini-etiqueta">
+                    PIROTECNIA · EFECTOS · EVENTOS
+                </p>
+
+                <h1>
+                    Hacemos grande
+                    <span>el momento.</span>
+                </h1>
+
+                <div class="hero-inferior">
+
+                    <p class="hero-descripcion">
+                        Experiencias visuales para bodas, XV años,
+                        revelaciones y celebraciones que merecen
+                        algo fuera de lo común.
+                    </p>
+
+                    <a href="#contacto" class="boton">
+                        COTIZAR EVENTO
+                        <span>→</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             SERVICIOS
+        =========================================== -->
+
+        <section class="servicios" id="servicios">
+
+            <div class="titulo-seccion reveal">
+
+                <span class="titulo-numero">01 / SERVICIOS</span>
+
+                <h2>
+                    Elige el
+                    <span>escenario.</span>
+                </h2>
+
+            </div>
+
+
+            <div class="servicios-mosaico">
+
+                <a href="#contacto" class="servicio servicio-grande reveal">
+
+                    <img
+                        src="imagenes/bodas.jpg"
+                        alt="Pirotecnia para bodas"
+                    >
+
+                    <div class="servicio-info">
+
+                        <div>
+                            <p class="servicio-numero">01</p>
+                            <h3>Bodas</h3>
+                        </div>
+
+                        <span class="servicio-flecha">↗</span>
+
+                    </div>
+
+                </a>
+
+
+                <a href="#contacto" class="servicio reveal">
+
+                    <img
+                        src="imagenes/xv.jpg"
+                        alt="Efectos para XV años"
+                    >
+
+                    <div class="servicio-info">
+
+                        <div>
+                            <p class="servicio-numero">02</p>
+                            <h3>XV años</h3>
+                        </div>
+
+                        <span class="servicio-flecha">↗</span>
+
+                    </div>
+
+                </a>
+
+
+                <a href="#contacto" class="servicio reveal">
+
+                    <img
+                        src="imagenes/revelacion.jpg"
+                        alt="Efectos para revelaciones"
+                    >
+
+                    <div class="servicio-info">
+
+                        <div>
+                            <p class="servicio-numero">03</p>
+                            <h3>Revelaciones</h3>
+                        </div>
+
+                        <span class="servicio-flecha">↗</span>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+
+            <div class="servicios-secundarios">
+
+                <a href="#contacto" class="servicio reveal">
+
+                    <img
+                        src="imagenes/eventos.jpg"
+                        alt="Efectos para eventos especiales"
+                    >
+
+                    <div class="servicio-info">
+
+                        <div>
+                            <p class="servicio-numero">04</p>
+                            <h3>Eventos</h3>
+                        </div>
+
+                        <span class="servicio-flecha">↗</span>
+
+                    </div>
+
+                </a>
+
+
+                <a href="#contacto" class="servicio reveal">
+
+                    <img
+                        src="imagenes/experiencia.jpg"
+                        alt="Producciones especiales PIROMAX"
+                    >
+
+                    <div class="servicio-info">
+
+                        <div>
+                            <p class="servicio-numero">05</p>
+                            <h3>Producciones</h3>
+                        </div>
+
+                        <span class="servicio-flecha">↗</span>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </section>
+
+<!-- ==========================================
+     PIROMAX EN ACCIÓN
+=========================================== -->
+
+<section class="en-accion">
+
+    <div class="accion-encabezado reveal">
+
+        <div>
+            <p class="mini-etiqueta">
+                PIROMAX EN ACCIÓN
+            </p>
+
+            <h2>
+                Esto no se
+                <span>explica. Se ve.</span>
+            </h2>
+        </div>
+
+        <p class="accion-descripcion">
+            Momentos reales. Eventos reales.
+            Así se vive PIROMAX.
+        </p>
+
+    </div>
+
+
+    <div class="videos-grid">
+
+        <div class="video-card reveal">
+            <video
+                src="videos/video1.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata">
+            </video>
+
+            <div class="video-marca">
+                <span>01</span>
+                <p>PIROMAX</p>
+            </div>
+        </div>
+
+
+        <div class="video-card video-central reveal">
+            <video
+                src="videos/video2.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata">
+            </video>
+
+            <div class="video-marca">
+                <span>02</span>
+                <p>PIROMAX</p>
+            </div>
+        </div>
+
+
+        <div class="video-card reveal">
+            <video
+                src="videos/video3.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata">
+            </video>
+
+            <div class="video-marca">
+                <span>03</span>
+                <p>PIROMAX</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+        <!-- ==========================================
+             FRASE DE MARCA
+        =========================================== -->
+
+        <section class="manifiesto">
+
+            <div class="manifiesto-contenido reveal">
+
+                <p class="mini-etiqueta">
+                    PIROMAX
+                </p>
+
+                <h2>
+                    El momento dura segundos.
+                    <span>El recuerdo, mucho más.</span>
+                </h2>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             CÓMO TRABAJAMOS
+        =========================================== -->
+
+        <section class="proceso" id="proceso">
+
+            <div class="titulo-seccion reveal">
+
+                <span class="titulo-numero">
+                    02 / PROCESO
+                </span>
+
+                <h2>
+                    De la idea
+                    <span>al espectáculo.</span>
+                </h2>
+
+            </div>
+
+
+            <div class="proceso-lista">
+
+                <div class="paso reveal">
+
+                    <span class="paso-numero">01</span>
+
+                    <h3>Cuéntanos</h3>
+
+                    <p>
+                        Fecha, ciudad, tipo de evento y el instante
+                        que quieres destacar.
+                    </p>
+
+                </div>
+
+
+                <div class="paso reveal">
+
+                    <span class="paso-numero">02</span>
+
+                    <h3>Planeamos</h3>
+
+                    <p>
+                        Elegimos la propuesta adecuada para el espacio
+                        y el tipo de experiencia que buscas.
+                    </p>
+
+                </div>
+
+
+                <div class="paso reveal">
+
+                    <span class="paso-numero">03</span>
+
+                    <h3>Ejecutamos</h3>
+
+                    <p>
+                        Coordinamos todo para que ocurra en el momento
+                        exacto de tu celebración.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             COBERTURA
+        =========================================== -->
+
+        <section class="cobertura" id="cobertura">
+
+            <div class="cobertura-contenido reveal">
+
+                <p class="mini-etiqueta">
+                    COBERTURA
+                </p>
+
+                <h2>
+                    Llevamos el
+                    <span>espectáculo.</span>
+                </h2>
+
+                <p class="ciudades">
+                    POZA RICA · PAPANTLA · COATZINTLA ·
+                    TAMPICO · CD. MADERO · ALTAMIRA
+                    <br>
+                    ¿Tu evento es en otra ciudad? Pregúntanos.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             CONTACTO
+        =========================================== -->
+
+        <section class="contacto" id="contacto">
+
+            <p class="contacto-mini">
+                TU FECHA · TU EVENTO · TU MOMENTO
+            </p>
+
+            <h2>
+                ¿Lo hacemos
+                espectacular?
+            </h2>
+
+            <a
+    href="https://wa.me/527841077500?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20PIROMAX%20y%20quiero%20cotizar%20un%20evento.%20%C2%BFMe%20pueden%20dar%20informaci%C3%B3n%3F"
+    class="header-cta"
+    target="_blank"
+>
+   <a
+    href="https://wa.me/527841077500?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20PIROMAX%20y%20quiero%20cotizar%20un%20evento.%20%C2%BFMe%20pueden%20dar%20informaci%C3%B3n%3F"
+    class="boton"
+    target="_blank"
+>
+    <a
+    href="https://wa.me/527841077500?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20PIROMAX%20y%20quiero%20cotizar%20un%20evento.%20%C2%BFMe%20pueden%20dar%20informaci%C3%B3n%3F"
+    class="contacto-boton"
+    target="_blank"
+>
+    COTIZAR POR WHATSAPP
+    <span>→</span>
+</a>
+
+            </a>
+        </section>
+
+    </main>
+
+
+
+    <!-- ==========================================
+         FOOTER
+    =========================================== -->
+
+    <footer>
+
+        <div class="footer-logo">
+            PIRO<span>MAX</span>
+        </div>
+
+        <p>
+            PIROMAX · EFECTOS PARA EVENTOS
+        </p>
+
+    </footer>
+
+
+
+    <!-- ==========================================
+         MOVIMIENTOS
+    =========================================== -->
+
+    <script>
+
+        const header = document.getElementById("header");
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 40) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+
+        });
+
+
+        const elementos = document.querySelectorAll(".reveal");
+
+        const observador = new IntersectionObserver(
+            (entradas) => {
+
+                entradas.forEach((entrada) => {
+
+                    if (entrada.isIntersecting) {
+                        entrada.target.classList.add("visible");
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+
+        elementos.forEach((elemento) => {
+            observador.observe(elemento);
+        });
+
+    </script>
+
+<a
+    href="https://wa.me/527841077500?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20PIROMAX%20y%20quiero%20cotizar%20un%20evento.%20%C2%BFMe%20pueden%20dar%20informaci%C3%B3n%3F"
+    class="whatsapp-flotante"
+    target="_blank"
+    aria-label="Cotizar por WhatsApp"
+>
+
+    <svg
+        viewBox="0 0 32 32"
+        aria-hidden="true"
+    >
+        <path
+            d="M19.11 17.2c-.28-.14-1.66-.82-1.92-.91-.26-.09-.45-.14-.64.14-.19.28-.73.91-.9 1.1-.16.19-.33.21-.61.07-.28-.14-1.19-.44-2.27-1.4-.84-.75-1.41-1.67-1.57-1.95-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.49.14-.16.19-.28.28-.47.09-.19.05-.35-.02-.49-.07-.14-.64-1.54-.88-2.11-.23-.56-.47-.48-.64-.49h-.55c-.19 0-.49.07-.75.35-.26.28-.99.96-.99 2.35 0 1.38 1.01 2.72 1.15 2.91.14.19 1.98 3.02 4.8 4.24.67.29 1.19.46 1.6.59.67.21 1.28.18 1.76.11.54-.08 1.66-.68 1.9-1.33.23-.66.23-1.22.16-1.33-.07-.12-.26-.19-.54-.33z"
+        />
+
+        <path
+            d="M16.02 3.2C9.02 3.2 3.34 8.86 3.34 15.84c0 2.46.71 4.76 1.94 6.7L3.2 28.8l6.44-2.01a12.62 12.62 0 0 0 6.37 1.72h.01c6.99 0 12.67-5.67 12.67-12.64S23.01 3.2 16.02 3.2zm0 22.99h-.01a10.32 10.32 0 0 1-5.27-1.44l-.38-.23-3.82 1.19 1.24-3.72-.25-.38a10.25 10.25 0 0 1-1.59-5.48c0-5.69 4.65-10.31 10.37-10.31 5.72 0 10.37 4.62 10.37 10.31 0 5.69-4.65 10.31-10.66 10.06z"
+        />
+    </svg>
+
+    <span>WhatsApp</span>
+
+</a>
+</body>
+</html>
